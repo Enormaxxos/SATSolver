@@ -1,0 +1,6 @@
+(20,20) # vertices are defined with a X and Y coordinate of a visualization
+(60,20) # number of a vertex is the line number in this file
+(60,60)
+(20,60)
+===== # divider of vert and edge definitions (variable number of equal signs)
+1-2 # vertex 1 and 2 are connected with an edge
