@@ -29,7 +29,7 @@ The monochromatic triangle problem takes as input an n-node undirected graph G(V
         - $\forall i,j( \lnot x_{ij} \rightarrow (\lnot y_{ij}^1\ \land\ \lnot y_{ij}^2))$
         - $\forall i,j( x_{ij}\ \lor\ (\lnot y_{ij}^1\ \land\ \lnot y_{ij}^2))$
         - $\textcolor{red}{\forall i,j( (x_{ij}\ \lor\ \lnot y_{ij}^1)\ \land\ (x_{ij}\ \lor\ \lnot y_{ij}^2))}$
-4) $\forall i,j,k((x_{ij}\ \land\ x_{ik}\ \land\ x_{jk}) \rightarrow (\lnot( y_{ij}^1\ \land\ y_{ik}^1\ \land\ y_{jk}^1) \land \lnot( y_{ij}^2\ \land\ y_{ik}^2\ \land\ y_{jk}^2)))$
+4) $\forall i,j,k; i \neq j; i \neq k; j \neq k((x_{ij}\ \land\ x_{ik}\ \land\ x_{jk}) \rightarrow (\lnot( y_{ij}^1\ \land\ y_{ik}^1\ \land\ y_{jk}^1) \land \lnot( y_{ij}^2\ \land\ y_{ik}^2\ \land\ y_{jk}^2)))$
     - if there's an edge between $v_{ij}$, $v_{ik}$ and $v_{jk}$, they are not all the same color
     - Process to CNF:
         - $\forall i,j,k((x_{ij}\ \land\ x_{ik}\ \land\ x_{jk}) \rightarrow (\lnot( y_{ij}^1\ \land\ y_{ik}^1\ \land\ y_{jk}^1) \land \lnot( y_{ij}^2\ \land\ y_{ik}^2\ \land\ y_{jk}^2)))$
