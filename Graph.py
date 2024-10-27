@@ -2,7 +2,7 @@ import re
 
 class Graph:
     def __init__(self):
-        self.vertices = [] # list of tuples (number of vertex, X position, Y position)
+        self.vertices = [] # list of tuples (X position, Y position)
         self.edges = [] # list of tuples (vertex1, vertex2) 
 
         self.vertLen = 0
