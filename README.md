@@ -35,3 +35,7 @@ The monochromatic triangle problem takes as input an n-node undirected graph G(V
         - $\forall i,j,k((x_{ij}\ \land\ x_{ik}\ \land\ x_{jk}) \rightarrow (\lnot( y_{ij}^1\ \land\ y_{ik}^1\ \land\ y_{jk}^1) \land \lnot( y_{ij}^2\ \land\ y_{ik}^2\ \land\ y_{jk}^2)))$
         - $\forall i,j,k(\lnot (x_{ij}\ \land\ x_{ik}\ \land\ x_{jk})\ \lor\ ((\lnot y_{ij}^1\ \lor\ \lnot y_{ik}^1\ \lor\ \lnot y_{jk}^1)\ \land\ (\lnot y_{ij}^2\ \lor\ \lnot y_{ik}^2)\ \lor\ \lnot y_{jk}^2))$
         - $\textcolor{red}{\forall i,j,k((\lnot x_{ij}\ \lor\ \lnot x_{ik}\ \lor\ \lnot x_{jk}\ \lor\ \lnot y_{ij}^1\ \lor\ \lnot y_{ik}^1\ \lor\ \lnot y_{jk}^1)\ \land\ (\lnot x_{ij}\ \lor\ \lnot x_{ik}\ \lor\ \lnot x_{jk}\ \lor\ \lnot y_{ij}^2\ \lor\ \lnot y_{ik}^2\ \lor\ \lnot y_{jk}^2))}$
+
+## Input format
+
+- To understand input file format, look at [this file](./tests/testFirst.in).
