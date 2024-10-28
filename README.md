@@ -4,9 +4,9 @@
 
 This solution depends on two external libraries
 - `tk` - to visualize results.
-- `python-sat` - to import glucose solver
+- `python-sat` - to import Glucose4 solver.
 
-I recommend creating virtual environment and installing these libraries in the venv.
+I recommend creating Python virtual environment and installing these libraries in this venv.
 
 ## Input format
 
