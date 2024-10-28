@@ -8,8 +8,12 @@ This solution depends on two external libraries
 
 I recommend creating Python virtual environment and installing these libraries in this venv.
 
-## Input format
+## Usage
 
+- Run solver with `solver.py <filename1> <filename2> ...` to run as many graphs as you want.
+    - Recommended:
+        - `cd` to root of the project
+        - `./solver.py ./tests/*`
 - To understand input file format, look at [this file](./tests/testFirst.in).
 
 ## Problem
