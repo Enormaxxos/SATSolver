@@ -1,5 +1,17 @@
 # Monochromatic triangle
 
+## Dependencies
+
+This solution depends on two external libraries
+- `tk` - to visualize results.
+- `python-sat` - to import glucose solver
+
+I recommend creating virtual environment and installing these libraries in the venv.
+
+## Input format
+
+- To understand input file format, look at [this file](./tests/testFirst.in).
+
 ## Problem
 
 The monochromatic triangle problem takes as input an n-node undirected graph G(V,E) with node set V and edge set E. The output is a Boolean value, true if the edge set E of G can be partitioned into two disjoint sets E1 and E2, such that both of the two subgraphs G1(V,E1) and G2(V,E2) are triangle-free graphs, and false otherwise.
@@ -35,7 +47,3 @@ The monochromatic triangle problem takes as input an n-node undirected graph G(V
         - $\forall i,j,k((x_{ij}\ \land\ x_{ik}\ \land\ x_{jk}) \rightarrow (\lnot( y_{ij}^1\ \land\ y_{ik}^1\ \land\ y_{jk}^1) \land \lnot( y_{ij}^2\ \land\ y_{ik}^2\ \land\ y_{jk}^2)))$
         - $\forall i,j,k(\lnot (x_{ij}\ \land\ x_{ik}\ \land\ x_{jk})\ \lor\ ((\lnot y_{ij}^1\ \lor\ \lnot y_{ik}^1\ \lor\ \lnot y_{jk}^1)\ \land\ (\lnot y_{ij}^2\ \lor\ \lnot y_{ik}^2)\ \lor\ \lnot y_{jk}^2))$
         - $\textcolor{red}{\forall i,j,k((\lnot x_{ij}\ \lor\ \lnot x_{ik}\ \lor\ \lnot x_{jk}\ \lor\ \lnot y_{ij}^1\ \lor\ \lnot y_{ik}^1\ \lor\ \lnot y_{jk}^1)\ \land\ (\lnot x_{ij}\ \lor\ \lnot x_{ik}\ \lor\ \lnot x_{jk}\ \lor\ \lnot y_{ij}^2\ \lor\ \lnot y_{ik}^2\ \lor\ \lnot y_{jk}^2))}$
-
-## Input format
-
-- To understand input file format, look at [this file](./tests/testFirst.in).

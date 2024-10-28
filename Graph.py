@@ -24,7 +24,7 @@ class Graph:
         return self._indexInternal(2,i,j)
 
     def createCNFFormula(self):
-        result = f"p cnf {3 * self.vertLenSq} { 5 * self.vertLenSq + 2 * (self.vertLen * max((self.vertLen - 1),0) * max((self.vertLen - 2), 0))} "
+        result = []
         
         # rule 0 (defining whether there's an edge between i and j)
         for i in range(self.vertLen):
@@ -33,7 +33,7 @@ class Graph:
                 if j in self.edges[i]:
                     connIndex *= -1
                     
-                result += f"{connIndex} 0 "
+                result.append([connIndex])
         
         # rule 1 (at least one color of an edge)
         for i in range(self.vertLen):
@@ -42,7 +42,7 @@ class Graph:
                 redIndex  = self._getEdgeRedColorIndex(i,j)
                 blueIndex = self._getEdgeBlueColorIndex(i,j)
                 
-                result += f"{connIndex} {redIndex} {blueIndex} 0 "
+                result.append([connIndex, redIndex, blueIndex])
             
         # rule 2 (at least NOT one color of an edge)
         for i in range(self.vertLen):
@@ -51,7 +51,7 @@ class Graph:
                 redIndex  = -self._getEdgeRedColorIndex(i,j)
                 blueIndex = -self._getEdgeBlueColorIndex(i,j)
                 
-                result += f"{connIndex} {redIndex} {blueIndex} 0 "
+                result.append([connIndex, redIndex, blueIndex])
                 
         # rule 3 (no color if not connected)
         for i in range(self.vertLen):
@@ -60,7 +60,8 @@ class Graph:
                 redIndex  = -self._getEdgeRedColorIndex(i,j)
                 blueIndex = -self._getEdgeBlueColorIndex(i,j)
                 
-                result += f"{connIndex} {redIndex} 0 {connIndex} {blueIndex} 0 "
+                result.append([connIndex, redIndex])
+                result.append([connIndex, blueIndex])
                 
         # rule 4 (if there's an triangle, it's not monochromatic)
         for i in range(self.vertLen):
@@ -81,8 +82,9 @@ class Graph:
                     ikBlue = -self._getEdgeBlueColorIndex(i,k)
                     jkBlue = -self._getEdgeBlueColorIndex(j,k)
                     
-                    result += f"{ijConn} {ikConn} {jkConn} {ijRed} {ikRed} {jkRed} 0 {ijConn} {ikConn} {jkConn} {ijBlue} {ikBlue} {jkBlue} 0 "
-        
+                    result.append([ijConn, ikConn, jkConn, ijRed, ikRed, jkRed])
+                    result.append([ijConn, ikConn, jkConn, ijBlue, ikBlue, jkBlue])
+                            
         return result
 
 

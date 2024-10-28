@@ -13,6 +13,7 @@ import sys
 import os
 import Visualizer
 from Graph import Graph
+from pysat.solvers import Glucose4
 
 
 def printUsage():
@@ -38,16 +39,14 @@ def main():
     # print(g.edges)
     # print(cnf)
     
-    if os.path.exists("./tmp.in"):
-        os.remove("./tmp.in") # remove cnf file if it exists somehow
-    
-    with open("./tmp.in", "x") as f:
-        f.write(cnf) # write cnf formula to input file
+    solver = Glucose4()
+    for clause in cnf:
+        solver.add_clause(clause)
         
-    os.system("./glucose_static ./tmp.in ./tmp.out >/dev/null") # run glucose solver
-    os.remove("./tmp.in") # remove input file
-    
-    Visualizer.visualize(g, "./tmp.out")
+    if solver.solve():
+        Visualizer.visualize(g, [ x > 0 for x in solver.get_model()])
+    else:
+        print("This graph has no solution.")
 
 if __name__ == "__main__":
     main()
