@@ -17,23 +17,17 @@ from pysat.solvers import Glucose4
 
 
 def printUsage():
-    print("Usage: solver.py <input file>")
+    print("Usage: solver.py <input file 1> <input file 2> ...")
 
 def createGraph():
     return Graph.fromFile(sys.argv[1])
 
-def main():
-    if len(sys.argv) != 2:
-        print("Error: Incorrect number of arguments.")
-        printUsage()
+def solve(fileName):
+    if not os.path.exists(fileName):
+        print(f"Error: File {fileName} doesn't exist.")
         return
     
-    if not os.path.exists(sys.argv[1]):
-        print(f"Error: File {sys.argv[1]} doesn't exist.")
-        printUsage()
-        return
-    
-    g = Graph.fromFile(sys.argv[1])
+    g = Graph.fromFile(fileName)
     cnf = g.createCNFFormula()
     # print(g.vertices)
     # print(g.edges)
@@ -47,6 +41,15 @@ def main():
         Visualizer.visualize(g, [ x > 0 for x in solver.get_model()])
     else:
         Visualizer.visualizeNoSol(g)
+
+def main():
+    if len(sys.argv) < 2:
+        print("Error: Incorrect number of arguments.")
+        printUsage()
+        return
+    
+    for i in range(1, len(sys.argv)):
+        solve(sys.argv[i])
 
 if __name__ == "__main__":
     main()
