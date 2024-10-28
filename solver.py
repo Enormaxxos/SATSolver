@@ -46,7 +46,7 @@ def main():
     if solver.solve():
         Visualizer.visualize(g, [ x > 0 for x in solver.get_model()])
     else:
-        print("This graph has no solution.")
+        Visualizer.visualizeNoSol(g)
 
 if __name__ == "__main__":
     main()
