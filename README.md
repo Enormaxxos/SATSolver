@@ -1,4 +1,6 @@
 # Monochromatic triangle
+- Created by **Petr Pelikan** as a project for course NAIL062 on 
+Charles University, Faculty of Mathematics and Physics.
 
 ## Dependencies
 
@@ -24,7 +26,7 @@ The monochromatic triangle problem takes as input an n-node undirected graph G(V
 
 ### Definitions
 - $x_{ij}$ - vertices $v_i, v_j$ are connected with an edge
-- $y_{ij}^1$ - edge connecting $v_i$ and $v_j$ has color $1$
+- $y_{ij}^k$ - edge connecting $v_i$ and $v_j$ has color $k$
 
 ### Theory
 1) $\forall i,j( x_{ij} \rightarrow (y_{ij}^1\ \lor\ y_{ij}^2))$
